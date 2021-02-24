@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.css">
+
+	<title> My Contacts</title>
+</head>
+<body>
+<div class="container">
+	<h1 class ="center-align"> My Contacts </h1>
+	<input type="text" id="filterInput" placeholder="Search Names">
+	<ul id="names" class="collection with-header">
+		<li class="collection-header">
+			<h5>A</h5> 
+		</li>
+		<li class="collection-item">
+			<a href="#">Abe</a>
+		</li>
+		<li class="collection-item">
+			<a href="#">Ana</a>
+		</li>
+		<li class="collection-item">
+			<a href="#">Asha</a>
+		</li>
+		<li class="collection-item">
+			<a href="#">Abhijit</a>
+		</li>
+		<li class="collection-header">
+			<h5>B</h5> 
+		</li>
+		<li class="collection-item">
+			<a href="#">Bob</a>
+		</li>
+		<li class="collection-item">
+			<a href="#">Billy</a>
+		</li>
+		<li class="collection-header">
+			<h5>C</h5> 
+		</li>
+		<li class="collection-item">
+			<a href="#">Cathy</a>
+		</li>
+		<li class="collection-item">
+			<a href="#">Cal</a>
+		</li>
+		<li class="collection-item">
+			<a href="#">Cortney</a>
+		</li>
+
+	</ul>
+</div>
+<script type="text/javascript">
+	let filterInput = document.getElementById('filterInput');
+	filterInput.addEventListener('keyup', filterNames);
+	function filterNames(){
+		let filterValue = document.getElementById('filterInput').value.toUpperCase();
+		// get names ul
+		let ul = document.getElementById('names');
+		//get li from ul
+		let li =ul.querySelectorAll('li.collection-item');
+		//loop through collection item li
+		for(let i=0;i <li.length;i++){
+			let a=li[i].getElementsByTagName('a')[0];
+			//if matches
+			if (a.innerHTML.toUpperCase().indexOf(filterValue)> -1) {
+              li[i].style.display='';
+			}else{
+				li[i].style.display='none';
+
+			}
+		}
+	}
+</script>
+</body>
+</html>
